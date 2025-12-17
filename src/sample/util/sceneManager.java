@@ -7,27 +7,23 @@ import javafx.stage.Stage;
 
 public class sceneManager {
 
-    private static Stage primaryStage;
+    private static Stage stage;
 
-    public static void init(Stage stage) {
-        primaryStage = stage;
+    public static void init(Stage primaryStage) {
+        stage = primaryStage;
     }
 
-    public static void switchScene(String fxmlPath, String title) {
+    public static void switchScene(String fxmlPath) {
         try {
-            var url = sceneManager.class.getResource("/" + fxmlPath);
+            Parent root = FXMLLoader.load(
+                    sceneManager.class.getResource(fxmlPath)
+            );
 
-            if (url == null) {
-                throw new RuntimeException("FXML not found: " + fxmlPath);
-            }
-
-            Parent root = FXMLLoader.load(url);
-            primaryStage.setScene(new Scene(root));
-            primaryStage.setTitle(title);
-            primaryStage.show();
+            stage.setScene(new Scene(root));
+            stage.show();
 
         } catch (Exception e) {
-            e.printStackTrace();
+            throw new RuntimeException("FXML NOT FOUND: " + fxmlPath, e);
         }
     }
 }

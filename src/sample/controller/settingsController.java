@@ -23,6 +23,6 @@ public class settingsController {
     }
 
     public void onBack() {
-        sceneManager.switchScene("view/main_menu.fxml", "Puzzle Slider");
+        sceneManager.switchScene("/sample/view/main_menu.fxml");
     }
 }

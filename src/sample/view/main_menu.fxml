@@ -14,6 +14,13 @@
            style="-fx-font-size: 36px; -fx-font-weight: bold;" />
 
     <Button text="START GAME" onAction="#onStart"/>
+    <Button text="Puzzle Angka"
+            onAction="#onNumberMode"
+            prefWidth="200"/>
+
+    <Button text="Puzzle Gambar"
+            onAction="#onImageMode"
+            prefWidth="200"/>
     <Button text="SETTINGS" onAction="#onSettings"/>
     <Button text="EXIT" onAction="#onExit"/>
 

@@ -11,7 +11,12 @@ import sample.model.levelConfig;
 import sample.util.audioManager;
 import sample.util.sceneManager;
 import sample.model.scoreResult;
+import sample.config.puzzleMode;
+import sample.util.imageRepository;
 
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.geometry.Rectangle2D;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -28,6 +33,7 @@ public class gameController {
     private int size;
     private int emptyRow, emptyCol;
     private int moves = 0;
+    private Image puzzleImage;
 
     private Timeline timer;
     private int seconds = 0;
@@ -35,8 +41,55 @@ public class gameController {
     private final Random random = new Random();
 
     @FXML
+    private void chooseNumberMode() {
+        levelConfig.setMode(puzzleMode.NUMBER);
+        levelConfig.setImagePath(null);
+        sceneManager.switchScene("level_select.fxml");
+    }
+
+    @FXML
+    private void chooseImageMode() {
+        levelConfig.setMode(puzzleMode.IMAGE);
+        sceneManager.switchScene("level_select.fxml");
+    }
+
+    @FXML
+    private void startLevel(int size) {
+
+        levelConfig.setGridSize(size);
+
+        if (levelConfig.getMode() == puzzleMode.IMAGE) {
+            String img = imageRepository.getImageByGrid(size);
+            levelConfig.setImagePath(img);   // ⬅️ WAJIB
+        }
+
+        sceneManager.switchScene("game.fxml");
+    }
+
+    private void loadImagePuzzle(String imagePath, int gridSize) {
+
+        if (imagePath == null) {
+            throw new RuntimeException("IMAGE MODE tapi imagePath NULL");
+        }
+
+        var url = getClass().getResource(imagePath);
+
+        if (url == null) {
+            throw new RuntimeException("Image tidak ditemukan: " + imagePath);
+        }
+
+        puzzleImage = new Image(url.toExternalForm());
+        this.size = gridSize;
+    }
+
+    @FXML
     public void initialize() {
         size = levelConfig.getGridSize();
+
+        if (levelConfig.getMode() == puzzleMode.IMAGE) {
+            loadImagePuzzle(levelConfig.getImagePath(), size);
+        }
+
         board = new Button[size][size];
         emptyRow = size - 1;
         emptyCol = size - 1;
@@ -44,6 +97,38 @@ public class gameController {
         createBoard();
         shuffle();
         startTimer();
+    }
+
+    public void onStart() {
+        sceneManager.switchScene("/sample/view/level_select.fxml");
+    }
+
+    public void onImageMode() {
+        levelConfig.setMode(puzzleMode.IMAGE);
+        sceneManager.switchScene("/sample/view/level_select.fxml");
+    }
+
+    private Button createNumberTile(int r, int c, int value) {
+        Button btn = new Button(String.valueOf(value));
+        btn.setUserData(value);
+        return btn;
+    }
+
+    private Button createImageTile(int r, int c) {
+        double w = puzzleImage.getWidth() / size;
+        double h = puzzleImage.getHeight() / size;
+
+        ImageView iv = new ImageView(puzzleImage);
+        iv.setViewport(new Rectangle2D(c * w, r * h, w, h));
+        iv.setFitWidth(70);
+        iv.setFitHeight(70);
+
+        Button btn = new Button();
+        btn.setGraphic(iv);
+        btn.setUserData(r * size + c + 1);
+        btn.setStyle("-fx-padding: 0;");
+
+        return btn;
     }
 
     // ================= BOARD =================
@@ -56,18 +141,34 @@ public class gameController {
 
                 Button tile;
 
+                // EMPTY TILE
                 if (r == size - 1 && c == size - 1) {
-                    tile = new Button("");
+                    tile = new Button();
+                    tile.setUserData(0);
                     tile.setDisable(true);
                     tile.setVisible(false);
                     emptyRow = r;
                     emptyCol = c;
-                } else {
-                    tile = new Button(String.valueOf(value++));
-                    tile.setOnAction(e -> moveTile(
-                            GridPane.getRowIndex(tile),
-                            GridPane.getColumnIndex(tile)
-                    ));
+                }
+                // NORMAL TILE
+                else {
+                    if (levelConfig.getMode() == puzzleMode.NUMBER) {
+                        tile = createNumberTile(r, c, value);
+                    } else {
+                        tile = createImageTile(r, c);
+                    }
+
+                    tile.setOnAction(e -> {
+                        Integer row = GridPane.getRowIndex(tile);
+                        Integer col = GridPane.getColumnIndex(tile);
+
+                        // fallback kalau null
+                        int rr = row == null ? 0 : row;
+                        int cc = col == null ? 0 : col;
+
+                        moveTile(rr, cc);
+                    });
+                    value++;
                 }
 
                 tile.setPrefSize(70, 70);
@@ -173,6 +274,7 @@ public class gameController {
     }
 
     // ================= WIN =================
+
     private boolean isSolved() {
         int expected = 1;
 
@@ -180,15 +282,13 @@ public class gameController {
             for (int c = 0; c < size; c++) {
 
                 Button tile = board[r][c];
+                int data = (int) tile.getUserData();
 
                 if (r == size - 1 && c == size - 1) {
-                    return tile != null && tile.getText().isEmpty();
+                    return data == 0;
                 }
 
-                if (tile == null || tile.getText().isEmpty()) return false;
-
-                int value = Integer.parseInt(tile.getText());
-                if (value != expected++) return false;
+                if (data != expected++) return false;
             }
         }
         return true;
@@ -201,7 +301,7 @@ public class gameController {
 
         scoreResult.setResult(moves, seconds, stars);
 
-        sceneManager.switchScene("view/win_popup.fxml", "You Win!");
+        sceneManager.switchScene("/sample/view/win_popup.fxml");
 
         audioManager.playSFX("assets/assets.resources.audio.style.audio/win.wav");
 
@@ -235,6 +335,6 @@ public class gameController {
 
     public void onExit() {
         timer.stop();
-        sceneManager.switchScene("view/main_menu.fxml", "Puzzle Slider");
+        sceneManager.switchScene("/sample/view/main_menu.fxml");
     }
 }

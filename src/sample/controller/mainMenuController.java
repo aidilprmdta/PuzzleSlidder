@@ -1,19 +1,34 @@
 package sample.controller;
 
-import javafx.application.Platform;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import sample.util.sceneManager;
 
 public class mainMenuController {
 
-    public void onStart() {
-        sceneManager.switchScene("view/level_select.fxml", "Select Level");
+    @FXML
+    public void onNumberMode(ActionEvent event) {
+        sceneManager.switchScene("/sample/view/level_select.fxml");
     }
 
-    public void onSettings() {
-        sceneManager.switchScene("view/settings.fxml", "Settings");
+    @FXML
+    public void onImageMode(ActionEvent event) {
+        sceneManager.switchScene("/sample/view/level_select.fxml");
     }
 
-    public void onExit() {
-        Platform.exit();
+    @FXML
+    public void onSettings(ActionEvent event) {
+        sceneManager.switchScene("/sample/view/settings.fxml");
     }
+
+    @FXML
+    public void onStart(ActionEvent event) {
+        sceneManager.switchScene("/sample/view/level_select.fxml");
+    }
+
+    @FXML
+    public void onExit(ActionEvent event) {
+        System.exit(0);
+    }
+
 }

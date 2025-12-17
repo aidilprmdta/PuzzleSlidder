@@ -9,7 +9,7 @@ public class main extends Application {
     @Override
     public void start(Stage stage) {
         sceneManager.init(stage);
-        sceneManager.switchScene("view/main_menu.fxml", "Puzzle Slider");
+        sceneManager.switchScene("/sample/view/main_menu.fxml");
     }
 
     public static void main(String[] args) {

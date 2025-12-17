@@ -24,14 +24,14 @@ public class winPopupController {
     }
 
     public void onContinue() {
-        sceneManager.switchScene("view/level_select.fxml", "Select Level");
+        sceneManager.switchScene("/sample/view/level_select.fxml");
     }
 
     public void onReplay() {
-        sceneManager.switchScene("view/game.fxml", "Puzzle Game");
+        sceneManager.switchScene("/sample/view/game.fxml");
     }
 
     public void onExit() {
-        sceneManager.switchScene("view/main_menu.fxml", "Puzzle Slider");
+        sceneManager.switchScene("/sample/view/main_menu.fxml");
     }
 }

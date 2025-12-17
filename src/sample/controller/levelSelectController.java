@@ -30,7 +30,7 @@ public class levelSelectController {
 
                 btn.setOnAction(e -> {
                     levelConfig.setLevel(selectedLevel);
-                    sceneManager.switchScene("view/game.fxml", "Puzzle Game");
+                    sceneManager.switchScene("/sample/view/game.fxml");
                 });
 
                 gridPane.add(btn, col, row);
@@ -40,6 +40,6 @@ public class levelSelectController {
     }
 
     public void onBack() {
-        sceneManager.switchScene("view/main_menu.fxml", "Puzzle Slider");
+        sceneManager.switchScene("/sample/view/main_menu.fxml");
     }
 }
