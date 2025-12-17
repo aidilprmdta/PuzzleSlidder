@@ -25,11 +25,10 @@
     </center>
 
     <bottom>
-        <HBox spacing="20" alignment="CENTER" style="-fx-padding: 15;">
+        <HBox spacing="10" alignment="CENTER" style="-fx-padding: 15;">
             <Button text="Shuffle" onAction="#onShuffle"/>
             <Button text="Exit" onAction="#onExit"/>
         </HBox>
     </bottom>
-
 
 </BorderPane>
