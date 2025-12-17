@@ -1,0 +1,77 @@
+.root {
+    -fx-background-color: #f0f2f5;
+}
+
+/* ===== HEADER ===== */
+.header {
+    -fx-padding: 20 0 10 0;
+}
+
+.title {
+    -fx-font-size: 22px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1f2937;
+    -fx-letter-spacing: 1px;
+}
+
+.move-label {
+    -fx-font-size: 14px;
+    -fx-text-fill: #4b5563;
+}
+
+/* ===== BOARD ===== */
+.board-card {
+    -fx-background-color: white;
+    -fx-padding: 20;
+    -fx-background-radius: 16;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 12, 0, 0, 4);
+}
+
+/* ===== TILE ===== */
+.tile {
+    -fx-background-color: linear-gradient(#4f46e5, #4338ca);
+    -fx-text-fill: white;
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-pref-width: 80px;
+    -fx-pref-height: 80px;
+    -fx-background-radius: 12;
+}
+
+.tile:hover {
+    -fx-background-color: linear-gradient(#6366f1, #4f46e5);
+    -fx-cursor: hand;
+}
+
+.tile:disabled {
+    -fx-opacity: 0.4;
+}
+
+/* ===== CONTROL BAR ===== */
+.control-bar {
+    -fx-padding: 14;
+}
+
+.primary-btn {
+    -fx-background-color: #4f46e5;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 10;
+    -fx-padding: 8 18;
+}
+
+.primary-btn:hover {
+    -fx-background-color: #6366f1;
+}
+
+.secondary-btn {
+    -fx-background-color: #e5e7eb;
+    -fx-text-fill: #111827;
+    -fx-font-weight: bold;
+    -fx-background-radius: 10;
+    -fx-padding: 8 18;
+}
+
+.secondary-btn:hover {
+    -fx-background-color: #d1d5db;
+}

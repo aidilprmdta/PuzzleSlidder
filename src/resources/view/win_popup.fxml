@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Button?>
+
+<VBox spacing="15"
+      alignment="CENTER"
+      style="-fx-padding: 25; -fx-background-color: white;"
+      xmlns="http://javafx.com/javafx/21"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="sample.controller.winPopupController">
+
+    <Label text="YOU WIN!"
+           style="-fx-font-size: 28px; -fx-font-weight: bold;" />
+
+    <Label fx:id="starLabel" text="★★★"
+           style="-fx-font-size: 24px;" />
+
+    <Label fx:id="moveLabel" text="Moves: 0" />
+    <Label fx:id="timeLabel" text="Time: 00:00" />
+
+    <Button text="CONTINUE" onAction="#onContinue"/>
+    <Button text="REPLAY" onAction="#onReplay"/>
+    <Button text="EXIT" onAction="#onExit"/>
+
+</VBox>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.Button?>
+
+<VBox spacing="20"
+      alignment="CENTER"
+      style="-fx-padding: 25;"
+      xmlns="http://javafx.com/javafx/21"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="sample.controller.settingsController">
+
+    <Label text="SETTINGS"
+           style="-fx-font-size: 28px; -fx-font-weight: bold;" />
+
+    <Label text="Music Volume"/>
+    <Slider fx:id="musicSlider" min="0" max="1"/>
+
+    <Label text="SFX Volume"/>
+    <Slider fx:id="sfxSlider" min="0" max="1"/>
+
+    <Label text="Rules:"
+           style="-fx-font-size: 16px; -fx-font-weight: bold;" />
+    <Label text="Susun angka agar berurutan dari kiri ke kanan, atas ke bawah.
+                Hanya tile yang bersebelahan dengan kotak kosong yang bisa digeser." />
+
+    <Button text="BACK" onAction="#onBack"/>
+
+</VBox>
