@@ -2,26 +2,20 @@
 
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
+<?import javafx.scene.text.Text?>
 
-<VBox spacing="20"
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="sample.controller.MainMenuController"
       alignment="CENTER"
-      xmlns="http://javafx.com/javafx/21"
-      xmlns:fx="http://javafx.com/fxml"
-      fx:controller="sample.controller.mainMenuController">
+      spacing="25"
+      stylesheets="/style/style.css"
+      prefWidth="600" prefHeight="700">
 
-    <Label text="PUZZLE SLIDER"
-           style="-fx-font-size: 36px; -fx-font-weight: bold;" />
+    <Text text="Puzzle Slider" styleClass="title-text"/>
 
-    <Button text="START GAME" onAction="#onStart"/>
-    <Button text="Puzzle Angka"
-            onAction="#onNumberMode"
-            prefWidth="200"/>
-
-    <Button text="Puzzle Gambar"
-            onAction="#onImageMode"
-            prefWidth="200"/>
-    <Button text="SETTINGS" onAction="#onSettings"/>
-    <Button text="EXIT" onAction="#onExit"/>
-
+    <Button fx:id="btnStart" text="Start" onAction="#onStart" styleClass="menu-button"/>
+    <Button fx:id="btnNumber" text="Number Mode" onAction="#onNumberMode" styleClass="menu-button"/>
+    <Button fx:id="btnImage" text="Image Mode" onAction="#onImageMode" styleClass="menu-button"/>
+    <Button fx:id="btnSettings" text="Settings" onAction="#onSettings" styleClass="menu-button"/>
+    <Button fx:id="btnExit" text="Exit" onAction="#onExit" styleClass="menu-button"/>
 </VBox>

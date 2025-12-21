@@ -1,6 +1,6 @@
 package sample.config;
 
-public enum puzzleMode {
+public enum PuzzleMode {
     NUMBER,
     IMAGE
 }

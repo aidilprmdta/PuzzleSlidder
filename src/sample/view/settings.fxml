@@ -7,10 +7,10 @@
 
 <VBox spacing="20"
       alignment="CENTER"
-      style="-fx-padding: 25;"
+      style="-fx-padding: 40;"
       xmlns="http://javafx.com/javafx/21"
       xmlns:fx="http://javafx.com/fxml"
-      fx:controller="sample.controller.settingsController">
+      fx:controller="sample.controller.SettingsController">
 
     <Label text="SETTINGS"
            style="-fx-font-size: 28px; -fx-font-weight: bold;" />

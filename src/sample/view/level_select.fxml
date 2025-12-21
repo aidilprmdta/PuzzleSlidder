@@ -11,12 +11,12 @@
       alignment="CENTER"
       xmlns="http://javafx.com/javafx/21"
       xmlns:fx="http://javafx.com/fxml"
-      fx:controller="sample.controller.levelSelectController">
+      fx:controller="sample.controller.LevelSelectController">
 
     <Label text="SELECT LEVEL"
            style="-fx-font-size: 28px; -fx-font-weight: bold;" />
 
-    <GridPane fx:id="gridPane" alignment="CENTER" hgap="5" vgap="5">
+    <GridPane fx:id="gridPane" alignment="CENTER" hgap="15" vgap="15" prefHeight="500" prefWidth="500">
         <columnConstraints>
             <ColumnConstraints percentWidth="25"/>
             <ColumnConstraints percentWidth="25"/>

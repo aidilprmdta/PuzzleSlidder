@@ -4,12 +4,12 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Button?>
 
-<VBox spacing="15"
+<VBox spacing="20"
       alignment="CENTER"
-      style="-fx-padding: 25; -fx-background-color: white;"
+      style="-fx-padding: 40; -fx-background-color: white;"
       xmlns="http://javafx.com/javafx/21"
       xmlns:fx="http://javafx.com/fxml"
-      fx:controller="sample.controller.winPopupController">
+      fx:controller="sample.controller.WinPopupController">
 
     <Label text="YOU WIN!"
            style="-fx-font-size: 28px; -fx-font-weight: bold;" />
