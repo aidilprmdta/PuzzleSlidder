@@ -14,7 +14,7 @@ public class WinPopupController {
     public void initialize() {
         moveLabel.setText("Moves: " + ScoreResult.getMoves());
         timeLabel.setText("Time: " + formatTime(ScoreResult.getTime()));
-        starLabel.setText("★★★"); // Bisa disesuaikan dengan stars
+        starLabel.setText("★★★★★"); // Bisa disesuaikan dengan stars
     }
 
     private String formatTime(int seconds) {
