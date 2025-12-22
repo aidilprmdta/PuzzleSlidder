@@ -2,17 +2,22 @@ package sample;
 
 import javafx.application.Application;
 import javafx.stage.Stage;
+import sample.util.AudioManager;
 import sample.util.SceneManager;
 
 public class Main extends Application {
 
     @Override
     public void start(Stage stage) {
-        SceneManager.setStage(stage); // Set stage di SceneManager
-        SceneManager.switchScene("/sample/view/main_menu.fxml");
+        // Set stage di SceneManager
+        SceneManager.setStage(stage);
         stage.setTitle("Puzzle Slider");
-        stage.setWidth(800);   // Lebar desktop
-        stage.setHeight(600);  // Tinggi desktop
+        AudioManager.playMenuBGM();
+        SceneManager.switchScene("/sample/view/main_menu.fxml");
+
+        // Sesuaikan ukuran dan tampilkan
+        stage.setWidth(800);   // ukuran desktop lebih besar
+        stage.setHeight(700);
         stage.setResizable(false);
         stage.show();
     }

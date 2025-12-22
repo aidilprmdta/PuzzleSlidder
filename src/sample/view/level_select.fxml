@@ -16,7 +16,10 @@
     <Label text="SELECT LEVEL"
            style="-fx-font-size: 28px; -fx-font-weight: bold;" />
 
-    <GridPane fx:id="gridPane" alignment="CENTER" hgap="15" vgap="15" prefHeight="500" prefWidth="500">
+    <GridPane fx:id="numberGrid" />
+    <GridPane fx:id="imageGrid" />
+
+    <GridPane fx:id="gridPane" alignment="CENTER" hgap="8" vgap="8  " prefHeight="500" prefWidth="500">
         <columnConstraints>
             <ColumnConstraints percentWidth="25"/>
             <ColumnConstraints percentWidth="25"/>

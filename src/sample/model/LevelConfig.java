@@ -40,4 +40,23 @@ public class LevelConfig {
     public static String getImagePath() {
         return imagePath;
     }
+
+    public static void reset() {
+        mode = PuzzleMode.NUMBER;
+        gridSize = 4;
+        level = 1;
+        imagePath = null;
+    }
+
+    public static void configureImageMode(int grid, String path) {
+        mode = PuzzleMode.IMAGE;
+        gridSize = grid;
+        imagePath = path;
+    }
+
+    public static void configureNumberMode(int grid) {
+        mode = PuzzleMode.NUMBER;
+        gridSize = grid;
+        imagePath = null;
+    }
 }

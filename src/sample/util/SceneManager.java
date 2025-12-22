@@ -5,9 +5,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-import java.io.IOException;
-
 public class SceneManager {
+
     private static Stage stage;
 
     public static void setStage(Stage s) {
@@ -15,12 +14,19 @@ public class SceneManager {
     }
 
     public static void switchScene(String fxml) {
+        if (stage == null) {
+            throw new IllegalStateException("Stage belum diset di SceneManager");
+        }
+
         try {
-            Parent root = FXMLLoader.load(SceneManager.class.getResource(fxml));
+            FXMLLoader loader =
+                    new FXMLLoader(SceneManager.class.getResource(fxml));
+            Parent root = loader.load();
             stage.setScene(new Scene(root));
-        } catch (IOException e) {
-            e.printStackTrace();
-            System.exit(1);
+            stage.sizeToScene();
+            stage.centerOnScreen();
+        } catch (Exception e) {
+            throw new RuntimeException("Gagal load scene: " + fxml, e);
         }
     }
 }

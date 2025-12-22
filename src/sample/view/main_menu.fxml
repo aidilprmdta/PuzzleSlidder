@@ -13,7 +13,6 @@
 
     <Text text="Puzzle Slider" styleClass="title-text"/>
 
-    <Button fx:id="btnStart" text="Start" onAction="#onStart" styleClass="menu-button"/>
     <Button fx:id="btnNumber" text="Number Mode" onAction="#onNumberMode" styleClass="menu-button"/>
     <Button fx:id="btnImage" text="Image Mode" onAction="#onImageMode" styleClass="menu-button"/>
     <Button fx:id="btnSettings" text="Settings" onAction="#onSettings" styleClass="menu-button"/>
