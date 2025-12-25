@@ -3,7 +3,9 @@ package sample.controller;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.layout.GridPane;
+import sample.config.PuzzleMode;
 import sample.model.LevelConfig;
+import sample.util.AudioManager;
 import sample.util.SceneManager;
 
 import java.util.Map;
@@ -21,10 +23,7 @@ public class LevelSelectController {
             3, new ImageLevel(5, "/images/level3.jpg"),
             4, new ImageLevel(5, "/images/level4.png"),
             5, new ImageLevel(5, "/images/level5.jpg"),
-            6, new ImageLevel(5, "/images/level6.png"),
-            7, new ImageLevel(5, "/images/level7.jpg"),
-            8, new ImageLevel(5, "/images/level8.jpg"),
-            9, new ImageLevel(5, "/images/level9.jpg")
+            6, new ImageLevel(5, "/images/level6.png")
     );
 
     private static final Map<Integer, Integer> NUMBER_LEVELS = Map.of(
@@ -38,72 +37,93 @@ public class LevelSelectController {
 
     @FXML
     public void initialize() {
-        createNumberButtons();
-        createImageButtons();
+        PuzzleMode mode = LevelConfig.getMode();
+
+        numberGrid.getChildren().clear();
+        imageGrid.getChildren().clear();
+
+        if (mode == PuzzleMode.NUMBER) {
+            imageGrid.setVisible(false);
+            createNumberButtons();
+        } else {
+            numberGrid.setVisible(false);
+            createImageButtons();
+        }
+
+        System.out.println("LEVEL SELECT MODE = " + mode);
     }
 
     @FXML
-    public void onBack() {
+    private void onBack() {
+        AudioManager.playClick();
         SceneManager.switchScene("/sample/view/main_menu.fxml");
     }
 
     /* =======================
        NUMBER MODE
        ======================= */
+
     private void createNumberButtons() {
-        int col = 0;
-        int row = 0;
+        final int[] col = {0};
+        final int[] row = {0};
 
-        for (int level = 1; level <= NUMBER_LEVELS.size(); level++) {
+        NUMBER_LEVELS.keySet().stream()
+                .sorted()
+                .forEach(level -> {
+                    int grid = NUMBER_LEVELS.get(level);
 
-            int grid = NUMBER_LEVELS.get(level);
-            final int selectedLevel = level;
+                    Button btn = new Button("Level " + level + "\n" + grid + "x" + grid);
+                    btn.setPrefSize(150, 100);
 
-            Button btn = new Button("Level " + level + "\n" + grid + " x " + grid);
-            btn.setPrefSize(150, 100);
+                    btn.setOnAction(e -> {
+                        AudioManager.playClick();
+                        LevelConfig.setLevel(level);
+                        LevelConfig.configureNumberMode(grid);
+                        SceneManager.switchScene("/sample/view/game.fxml");
+                    });
 
-            btn.setOnAction(e -> {
-                LevelConfig.configureNumberMode(grid);
-                LevelConfig.setLevel(selectedLevel);
-                SceneManager.switchScene("/sample/view/game.fxml");
-            });
+                    numberGrid.add(btn, col[0], row[0]);
 
-            numberGrid.add(btn, col, row);
-
-            col++;
-            if (col == 3) {
-                col = 0;
-                row++;
-            }
-        }
+                    col[0]++;
+                    if (col[0] == 3) {
+                        col[0] = 0;
+                        row[0]++;
+                    }
+                });
     }
 
     /* =======================
        IMAGE MODE
        ======================= */
     private void createImageButtons() {
-        int level = 1;
+        final int[] col = {0};
+        final int[] row = {0};
 
-        for (int r = 0; r < 3; r++) {
-            for (int c = 0; c < 3; c++) {
+        IMAGE_LEVELS.keySet().stream()
+                .sorted()
+                .forEach(level -> {
+                    ImageLevel data = IMAGE_LEVELS.get(level);
 
-                final int selectedLevel = level++;
-                ImageLevel data = IMAGE_LEVELS.get(selectedLevel);
+                    Button btn = new Button("Level " + level);
+                    btn.setPrefSize(150, 100);
 
-                Button btn = new Button("Level " + selectedLevel);
-                btn.setPrefSize(150, 100);
+                    btn.setOnAction(e -> {
+                        AudioManager.playClick();
+                        LevelConfig.setLevel(level);
+                        LevelConfig.configureImageMode(
+                                data.grid(),
+                                data.imagePath()
+                        );
+                        SceneManager.switchScene("/sample/view/game.fxml");
+                    });
 
-                btn.setOnAction(e -> {
-                    LevelConfig.configureImageMode(
-                            data.grid(),
-                            data.imagePath()
-                    );
-                    LevelConfig.setLevel(selectedLevel);
-                    SceneManager.switchScene("/sample/view/game.fxml");
+                    imageGrid.add(btn, col[0], row[0]);
+
+                    col[0]++;
+                    if (col[0] == 3) {
+                        col[0] = 0;
+                        row[0]++;
+                    }
                 });
-
-                imageGrid.add(btn, c, r);
-            }
-        }
     }
 }

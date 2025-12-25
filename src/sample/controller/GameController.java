@@ -50,8 +50,9 @@ public class GameController {
 
         if (LevelConfig.getMode() == PuzzleMode.IMAGE) {
             String path = LevelConfig.getImagePath();
-            if (path == null)
-                throw new RuntimeException("Image path not set");
+            if (path == null) {
+                throw new IllegalStateException("IMAGE mode tanpa imagePath");
+            }
             puzzleImage = new Image(getClass().getResource(path).toExternalForm());
         }
 
@@ -66,22 +67,15 @@ public class GameController {
         AudioManager.stopBGM();
         AudioManager.playGameBGM();
 
-        if (LevelConfig.getMode() == PuzzleMode.IMAGE) {
-            String path = LevelConfig.getImagePath();
-            if (path == null) {
-                System.err.println("⚠ IMAGE MODE tanpa image path, fallback ke NUMBER");
-                LevelConfig.setMode(PuzzleMode.NUMBER);
-            } else {
-                puzzleImage = new Image(getClass().getResource(path).toExternalForm());
-            }
-        }
-
         System.out.println("MODE = " + LevelConfig.getMode());
     }
 
+    /* =====================
+       BOARD CREATION
+       ===================== */
     private void createBoard() {
+        levelGrid.getChildren().clear();
         int value = 1;
-        double tileSize = 120;
 
         for (int r = 0; r < size; r++) {
             for (int c = 0; c < size; c++) {
@@ -101,15 +95,16 @@ public class GameController {
                     } else {
                         tile = createImageTile(r, c);
                     }
-
-                    tile.setOnAction(e -> {
-                        Integer row = GridPane.getRowIndex(tile);
-                        Integer col = GridPane.getColumnIndex(tile);
-                        moveTile(row, col);
-                    });
                 }
 
-                tile.setPrefSize(tileSize, tileSize);
+                tile.setOnAction(e -> {
+                    Integer row = GridPane.getRowIndex(tile);
+                    Integer col = GridPane.getColumnIndex(tile);
+
+                    moveTile(row == null ? 0 : row,
+                            col == null ? 0 : col);
+                });
+
                 board[r][c] = tile;
                 levelGrid.add(tile, c, r);
             }
@@ -119,6 +114,7 @@ public class GameController {
     private Button createNumberTile(int value) {
         Button btn = new Button(String.valueOf(value));
         btn.setUserData(value);
+        btn.setPrefSize(120, 120);
         btn.setStyle("-fx-font-size: 24px; -fx-font-weight: bold;");
         return btn;
     }
@@ -134,12 +130,15 @@ public class GameController {
 
         Button btn = new Button();
         btn.setGraphic(iv);
-        btn.setText(null);
         btn.setUserData(r * size + c + 1);
+        btn.setPrefSize(120, 120);
         btn.setStyle("-fx-padding: 0;");
         return btn;
     }
 
+    /* =====================
+       GAME LOGIC
+       ===================== */
     private void moveTile(int r, int c) {
         if (gameFinished) return;
         if (!isValidMove(r, c)) return;
@@ -210,10 +209,11 @@ public class GameController {
         int expected = 1;
         for (int r = 0; r < size; r++) {
             for (int c = 0; c < size; c++) {
-                int data = (int) board[r][c].getUserData();
                 if (r == size - 1 && c == size - 1)
-                    return data == 0;
-                if (data != expected++) return false;
+                    return (int) board[r][c].getUserData() == 0;
+
+                if ((int) board[r][c].getUserData() != expected++)
+                    return false;
             }
         }
         return true;

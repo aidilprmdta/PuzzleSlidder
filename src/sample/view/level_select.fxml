@@ -16,43 +16,8 @@
     <Label text="SELECT LEVEL"
            style="-fx-font-size: 28px; -fx-font-weight: bold;" />
 
-    <!-- NUMBER MODE GRID -->
-    <GridPane fx:id="numberGrid"
-              alignment="CENTER"
-              hgap="8"
-              vgap="8">
-
-        <columnConstraints>
-            <ColumnConstraints percentWidth="33"/>
-            <ColumnConstraints percentWidth="33"/>
-            <ColumnConstraints percentWidth="33"/>
-        </columnConstraints>
-
-        <rowConstraints>
-            <RowConstraints percentHeight="33"/>
-            <RowConstraints percentHeight="33"/>
-            <RowConstraints percentHeight="33"/>
-        </rowConstraints>
-    </GridPane>
-
-    <!-- IMAGE MODE GRID -->
-    <GridPane fx:id="imageGrid"
-              alignment="CENTER"
-              hgap="8"
-              vgap="8">
-
-        <columnConstraints>
-            <ColumnConstraints percentWidth="33"/>
-            <ColumnConstraints percentWidth="33"/>
-            <ColumnConstraints percentWidth="33"/>
-        </columnConstraints>
-
-        <rowConstraints>
-            <RowConstraints percentHeight="33"/>
-            <RowConstraints percentHeight="33"/>
-            <RowConstraints percentHeight="33"/>
-        </rowConstraints>
-    </GridPane>
+    <GridPane fx:id="numberGrid" />
+    <GridPane fx:id="imageGrid" />
 
     <Button text="BACK" onAction="#onBack"/>
 
