@@ -16,21 +16,41 @@
     <Label text="SELECT LEVEL"
            style="-fx-font-size: 28px; -fx-font-weight: bold;" />
 
-    <GridPane fx:id="numberGrid" />
-    <GridPane fx:id="imageGrid" />
+    <!-- NUMBER MODE GRID -->
+    <GridPane fx:id="numberGrid"
+              alignment="CENTER"
+              hgap="8"
+              vgap="8">
 
-    <GridPane fx:id="gridPane" alignment="CENTER" hgap="8" vgap="8  " prefHeight="500" prefWidth="500">
         <columnConstraints>
-            <ColumnConstraints percentWidth="25"/>
-            <ColumnConstraints percentWidth="25"/>
-            <ColumnConstraints percentWidth="25"/>
-            <ColumnConstraints percentWidth="25"/>
+            <ColumnConstraints percentWidth="33"/>
+            <ColumnConstraints percentWidth="33"/>
+            <ColumnConstraints percentWidth="33"/>
         </columnConstraints>
+
         <rowConstraints>
-            <RowConstraints percentHeight="25"/>
-            <RowConstraints percentHeight="25"/>
-            <RowConstraints percentHeight="25"/>
-            <RowConstraints percentHeight="25"/>
+            <RowConstraints percentHeight="33"/>
+            <RowConstraints percentHeight="33"/>
+            <RowConstraints percentHeight="33"/>
+        </rowConstraints>
+    </GridPane>
+
+    <!-- IMAGE MODE GRID -->
+    <GridPane fx:id="imageGrid"
+              alignment="CENTER"
+              hgap="8"
+              vgap="8">
+
+        <columnConstraints>
+            <ColumnConstraints percentWidth="33"/>
+            <ColumnConstraints percentWidth="33"/>
+            <ColumnConstraints percentWidth="33"/>
+        </columnConstraints>
+
+        <rowConstraints>
+            <RowConstraints percentHeight="33"/>
+            <RowConstraints percentHeight="33"/>
+            <RowConstraints percentHeight="33"/>
         </rowConstraints>
     </GridPane>
 
