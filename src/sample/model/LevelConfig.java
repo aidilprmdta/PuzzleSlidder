@@ -29,14 +29,6 @@ public class LevelConfig {
         level = l;
     }
 
-    public static int getLevel() {
-        return level;
-    }
-
-    public static void setImagePath(String path) {
-        imagePath = path;
-    }
-
     public static String getImagePath() {
         return imagePath;
     }

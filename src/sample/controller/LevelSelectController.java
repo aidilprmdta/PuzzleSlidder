@@ -23,16 +23,19 @@ public class LevelSelectController {
             3, new ImageLevel(5, "/images/level3.jpg"),
             4, new ImageLevel(5, "/images/level4.png"),
             5, new ImageLevel(5, "/images/level5.jpg"),
-            6, new ImageLevel(5, "/images/level6.png")
+            6, new ImageLevel(5, "/images/level6.png"),
+            7, new ImageLevel(5, "/images/level6.png"),
+            8, new ImageLevel(5, "/images/level6.png"),
+            9, new ImageLevel(5, "/images/level6.png")
     );
 
     private static final Map<Integer, Integer> NUMBER_LEVELS = Map.of(
-            1, 3,
+            1, 2,
             2, 3,
             3, 4,
-            4, 4,
-            5, 5,
-            6, 5
+            4, 5,
+            5, 6,
+            6, 7
     );
 
     @FXML
@@ -58,10 +61,6 @@ public class LevelSelectController {
         AudioManager.playClick();
         SceneManager.switchScene("/sample/view/main_menu.fxml");
     }
-
-    /* =======================
-       NUMBER MODE
-       ======================= */
 
     private void createNumberButtons() {
         final int[] col = {0};
@@ -93,9 +92,6 @@ public class LevelSelectController {
                 });
     }
 
-    /* =======================
-       IMAGE MODE
-       ======================= */
     private void createImageButtons() {
         final int[] col = {0};
         final int[] row = {0};

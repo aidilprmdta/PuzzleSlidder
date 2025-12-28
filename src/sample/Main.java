@@ -9,15 +9,13 @@ public class Main extends Application {
 
     @Override
     public void start(Stage stage) {
-        // Set stage di SceneManager
         SceneManager.setStage(stage);
         stage.setTitle("Puzzle Slider");
         AudioManager.playMenuBGM();
         SceneManager.switchScene("/sample/view/main_menu.fxml");
 
-        // Sesuaikan ukuran dan tampilkan
-        stage.setWidth(800);   // ukuran desktop lebih besar
-        stage.setHeight(700);
+        stage.setWidth(900);
+        stage.setHeight(500);
         stage.setResizable(false);
         stage.show();
     }

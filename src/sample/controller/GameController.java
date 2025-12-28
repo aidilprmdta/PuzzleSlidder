@@ -10,6 +10,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.geometry.Rectangle2D;
 import javafx.util.Duration;
+
 import sample.config.PuzzleMode;
 import sample.model.LevelConfig;
 import sample.model.ScoreResult;
@@ -30,7 +31,6 @@ public class GameController {
     private int emptyRow, emptyCol;
     private int moves;
     private int seconds;
-
     private Image puzzleImage;
     private Timeline timer;
     private final Random random = new Random();
@@ -39,12 +39,10 @@ public class GameController {
     @FXML
     public void initialize() {
         size = LevelConfig.getGridSize();
-
         levelGrid.getChildren().clear();
         moves = 0;
         seconds = 0;
         gameFinished = false;
-
         moveLabel.setText("Moves: 0");
         timeLabel.setText("Time: 00:00");
 
@@ -66,13 +64,9 @@ public class GameController {
 
         AudioManager.stopBGM();
         AudioManager.playGameBGM();
-
         System.out.println("MODE = " + LevelConfig.getMode());
     }
 
-    /* =====================
-       BOARD CREATION
-       ===================== */
     private void createBoard() {
         levelGrid.getChildren().clear();
         int value = 1;
@@ -138,15 +132,11 @@ public class GameController {
         return btn;
     }
 
-    /* =====================
-       GAME LOGIC
-       ===================== */
     private void moveTile(int r, int c) {
         if (gameFinished) return;
         if (!isValidMove(r, c)) return;
 
         swap(r, c);
-
         moves++;
         moveLabel.setText("Moves: " + moves);
         AudioManager.playSlide();
@@ -233,7 +223,7 @@ public class GameController {
     }
 
     private int calculateStars() {
-        int stars = 3;
+        int stars = 5;
         if (moves > size * size * 2) stars--;
         if (seconds > size * size * 5) stars--;
         return Math.max(stars, 1);

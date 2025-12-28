@@ -9,15 +9,9 @@ public final class AudioManager {
 
     private static MediaPlayer bgmPlayer;
     private static String currentBgmPath;
-
     private static double bgmVolume = 0.5;
     private static double sfxVolume = 0.7;
-
     private AudioManager() {}
-
-    /* =======================
-       LOAD MEDIA
-       ======================= */
     private static Media load(String path) {
         URL url = AudioManager.class.getResource(path);
         if (url == null)
@@ -25,9 +19,6 @@ public final class AudioManager {
         return new Media(url.toExternalForm());
     }
 
-    /* =======================
-       BGM CONTROL
-       ======================= */
     public static void playMenuBGM() {
         playBGM("/audio/bgm.wav");
     }
@@ -37,17 +28,13 @@ public final class AudioManager {
     }
 
     private static void playBGM(String path) {
-
-        // ❗ JANGAN restart kalau lagu sama
         if (bgmPlayer != null && path.equals(currentBgmPath)) {
             return;
         }
 
         stopBGM();
-
         bgmPlayer = new MediaPlayer(load(path));
         currentBgmPath = path;
-
         bgmPlayer.setCycleCount(MediaPlayer.INDEFINITE);
         bgmPlayer.setVolume(bgmVolume);
         bgmPlayer.play();
@@ -72,9 +59,6 @@ public final class AudioManager {
         return bgmVolume;
     }
 
-    /* =======================
-       SFX CONTROL
-       ======================= */
     public static void playClick() {
         playSFX("/audio/mouse-klik.mp3");
     }
@@ -102,9 +86,6 @@ public final class AudioManager {
         return sfxVolume;
     }
 
-    /* =======================
-       UTIL
-       ======================= */
     private static double clamp(double v) {
         return Math.max(0, Math.min(1, v));
     }
