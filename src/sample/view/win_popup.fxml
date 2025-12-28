@@ -6,22 +6,20 @@
 
 <VBox spacing="20"
       alignment="CENTER"
-      style="-fx-padding: 40; -fx-background-color: white;"
+      stylesheets="/style/style.css"
       xmlns="http://javafx.com/javafx/21"
       xmlns:fx="http://javafx.com/fxml"
       fx:controller="sample.controller.WinPopupController">
 
-    <Label text="YOU WIN!"
-           style="-fx-font-size: 28px; -fx-font-weight: bold;" />
+    <Label text="YOU WIN!" styleClass="win-title"/>
 
-    <Label fx:id="starLabel" text="★★★"
-           style="-fx-font-size: 24px;" />
+    <Label fx:id="starLabel" text="★★★★★" styleClass="star"/>
 
-    <Label fx:id="moveLabel" text="Moves: 0" />
-    <Label fx:id="timeLabel" text="Time: 00:00" />
+    <Label fx:id="moveLabel" text="Moves: 0" styleClass="label-muted"/>
+    <Label fx:id="timeLabel" text="Time: 00:00" styleClass="label-muted"/>
 
-    <Button text="CONTINUE" onAction="#onContinue"/>
-    <Button text="REPLAY" onAction="#onReplay"/>
-    <Button text="EXIT" onAction="#onExit"/>
+    <Button text="CONTINUE" onAction="#onContinue" styleClass="btn-primary"/>
+    <Button text="REPLAY" onAction="#onReplay" styleClass="btn-secondary"/>
+    <Button text="EXIT" onAction="#onExit" styleClass="btn-secondary"/>
 
 </VBox>

@@ -73,6 +73,7 @@ public class LevelSelectController {
                     int grid = NUMBER_LEVELS.get(level);
 
                     Button btn = new Button("Level " + level + "\n" + grid + "x" + grid);
+                    btn.getStyleClass().add("level-card");
                     btn.setPrefSize(150, 100);
 
                     btn.setOnAction(e -> {
@@ -105,6 +106,7 @@ public class LevelSelectController {
                     ImageLevel data = IMAGE_LEVELS.get(level);
 
                     Button btn = new Button("Level " + level);
+                    btn.getStyleClass().add("level-card");
                     btn.setPrefSize(150, 100);
 
                     btn.setOnAction(e -> {

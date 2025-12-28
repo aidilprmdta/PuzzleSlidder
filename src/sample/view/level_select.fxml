@@ -11,14 +11,14 @@
       alignment="CENTER"
       xmlns="http://javafx.com/javafx/21"
       xmlns:fx="http://javafx.com/fxml"
-      fx:controller="sample.controller.LevelSelectController">
+      fx:controller="sample.controller.LevelSelectController"
+      stylesheets="/style/style.css">
 
-    <Label text="SELECT LEVEL"
-           style="-fx-font-size: 28px; -fx-font-weight: bold;" />
+    <Label text="SELECT LEVEL" styleClass="section-title" />
 
-    <GridPane fx:id="numberGrid" />
-    <GridPane fx:id="imageGrid" />
+    <GridPane fx:id="numberGrid" hgap="24" vgap="24"/>
+    <GridPane fx:id="imageGrid" hgap="24" vgap="24"/>
 
-    <Button text="BACK" onAction="#onBack"/>
+    <Button text="BACK" onAction="#onBack" styleClass="btn-secondary"/>
 
 </VBox>

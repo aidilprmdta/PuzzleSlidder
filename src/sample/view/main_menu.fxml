@@ -7,14 +7,13 @@
 <VBox xmlns:fx="http://javafx.com/fxml"
       fx:controller="sample.controller.MainMenuController"
       alignment="CENTER"
-      spacing="25"
-      stylesheets="/style/style.css"
-      prefWidth="600" prefHeight="700">
+      spacing="30"
+      stylesheets="/style/style.css">
 
     <Text text="Puzzle Slider" styleClass="title-text"/>
 
     <Button fx:id="btnNumber" text="Number Mode" onAction="#onNumberMode" styleClass="menu-button"/>
     <Button fx:id="btnImage" text="Image Mode" onAction="#onImageMode" styleClass="menu-button"/>
-<!--    <Button fx:id="btnSettings" text="Settings" onAction="#onSettings" styleClass="menu-button"/>-->
+<!--    <Button fx:id="btnSettings" text="Settings" onAction="#on" styleClass="menu-button"/>-->
     <Button fx:id="btnExit" text="Exit" onAction="#onExit" styleClass="menu-button"/>
 </VBox>

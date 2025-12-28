@@ -87,6 +87,8 @@ public class GameController {
                     tile.setUserData(0);
                     tile.setDisable(true);
                     tile.setVisible(false);
+                    tile.getStyleClass().add("tile-empty");
+                    tile.setText("");
                     emptyRow = r;
                     emptyCol = c;
                 } else {
@@ -115,7 +117,7 @@ public class GameController {
         Button btn = new Button(String.valueOf(value));
         btn.setUserData(value);
         btn.setPrefSize(120, 120);
-        btn.setStyle("-fx-font-size: 24px; -fx-font-weight: bold;");
+        btn.getStyleClass().add("tile");
         return btn;
     }
 

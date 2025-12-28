@@ -9,13 +9,12 @@
 <BorderPane xmlns="http://javafx.com/javafx/21"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="sample.controller.GameController"
-            prefWidth="900"
-            prefHeight="700">
+            stylesheets="/style/style.css">
 
     <top>
-        <HBox spacing="30" alignment="CENTER" style="-fx-padding: 20;">
-            <Label fx:id="moveLabel" text="Moves: 0"/>
-            <Label fx:id="timeLabel" text="Time: 00:00"/>
+        <HBox spacing="30" alignment="CENTER">
+            <Label fx:id="moveLabel" text="Moves: 0" styleClass="info-label"/>
+            <Label fx:id="timeLabel" text="Time: 00:00" styleClass="info-label"/>
         </HBox>
     </top>
 
@@ -27,9 +26,9 @@
     </center>
 
     <bottom>
-        <HBox spacing="30" alignment="CENTER" style="-fx-padding: 20;">
-            <Button text="Shuffle" onAction="#onShuffle"/>
-            <Button text="Exit" onAction="#onExit"/>
+        <HBox spacing="30" alignment="CENTER">
+            <Button text="Shuffle" onAction="#onShuffle" styleClass="btn-primary"/>
+            <Button text="Exit" onAction="#onExit" styleClass="btn-secondary"/>
         </HBox>
     </bottom>
 
