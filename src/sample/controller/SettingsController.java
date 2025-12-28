@@ -7,11 +7,9 @@ import sample.util.SceneManager;
 
 public class SettingsController {
 
-    @FXML
-    private Slider musicSlider, sfxSlider;
+    @FXML private Slider musicSlider, sfxSlider;
 
-    @FXML
-    public void initialize() {
+    @FXML public void initialize() {
         musicSlider.setValue(AudioManager.getBgmVolume());
         sfxSlider.setValue(AudioManager.getSfxVolume());
 
@@ -24,8 +22,7 @@ public class SettingsController {
         );
     }
 
-    @FXML
-    public void onBack() {
+    @FXML public void onBack() {
         SceneManager.switchScene("/sample/view/main_menu.fxml");
     }
 }

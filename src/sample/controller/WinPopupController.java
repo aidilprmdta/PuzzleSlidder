@@ -11,14 +11,11 @@ public class WinPopupController {
     @FXML private Label moveLabel;
     @FXML private Label timeLabel;
     @FXML private Label starLabel;
-
-    @FXML
-    public void initialize() {
+    @FXML public void initialize() {
 
         AudioManager.playWin();
 
         moveLabel.setText("Moves: " + ScoreResult.getMoves());
-
         int sec = ScoreResult.getSeconds();
         timeLabel.setText(
                 String.format("Time: %02d:%02d", sec / 60, sec % 60)
@@ -27,19 +24,16 @@ public class WinPopupController {
         starLabel.setText("★".repeat(Math.max(0, ScoreResult.getStars())));
     }
 
-    @FXML
-    private void onContinue() {
+    @FXML private void onContinue() {
         SceneManager.switchScene("/sample/view/main_menu.fxml");
     }
 
-    @FXML
-    private void onReplay() {
+    @FXML private void onReplay() {
         ScoreResult.reset(); // SEKARANG VALID
         SceneManager.switchScene("/sample/view/game.fxml");
     }
 
-    @FXML
-    private void onExit() {
+    @FXML private void onExit() {
         System.exit(0);
     }
 }

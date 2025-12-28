@@ -229,8 +229,7 @@ public class GameController {
         return Math.max(stars, 1);
     }
 
-    @FXML
-    public void onShuffle() {
+    @FXML public void onShuffle() {
         moves = 0;
         seconds = 0;
         gameFinished = false;
@@ -242,8 +241,7 @@ public class GameController {
         startTimer();
     }
 
-    @FXML
-    public void onExit() {
+    @FXML public void onExit() {
         if (timer != null) timer.stop();
         AudioManager.stopBGM();
         SceneManager.switchScene("/sample/view/main_menu.fxml");

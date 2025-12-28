@@ -17,10 +17,6 @@ public class LevelConfig {
         return mode;
     }
 
-    public static void setGridSize(int size) {
-        gridSize = size;
-    }
-
     public static int getGridSize() {
         return gridSize;
     }
@@ -31,13 +27,6 @@ public class LevelConfig {
 
     public static String getImagePath() {
         return imagePath;
-    }
-
-    public static void reset() {
-        mode = PuzzleMode.NUMBER;
-        gridSize = 4;
-        level = 1;
-        imagePath = null;
     }
 
     public static void configureImageMode(int grid, String path) {

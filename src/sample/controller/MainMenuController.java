@@ -8,29 +8,19 @@ import sample.util.SceneManager;
 
 public class MainMenuController {
 
-    @FXML
-    private void onStart() {
-        AudioManager.playClick();
-        LevelConfig.reset(); // penting
-        SceneManager.switchScene("/sample/view/level_select.fxml");
-    }
-
-    @FXML
-    private void onNumberMode() {
+    @FXML private void onNumberMode() {
         AudioManager.playClick();
         LevelConfig.configureNumberMode(4);
         SceneManager.switchScene("/sample/view/level_select.fxml");
     }
 
-    @FXML
-    private void onImageMode() {
+    @FXML private void onImageMode() {
         AudioManager.playClick();
         LevelConfig.setMode(PuzzleMode.IMAGE);
         SceneManager.switchScene("/sample/view/level_select.fxml");
     }
 
-    @FXML
-    private void onExit() {
+    @FXML private void onExit() {
         System.exit(0);
     }
 }

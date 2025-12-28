@@ -38,8 +38,7 @@ public class LevelSelectController {
             6, 7
     );
 
-    @FXML
-    public void initialize() {
+    @FXML public void initialize() {
         PuzzleMode mode = LevelConfig.getMode();
 
         numberGrid.getChildren().clear();
@@ -56,8 +55,7 @@ public class LevelSelectController {
         System.out.println("LEVEL SELECT MODE = " + mode);
     }
 
-    @FXML
-    private void onBack() {
+    @FXML private void onBack() {
         AudioManager.playClick();
         SceneManager.switchScene("/sample/view/main_menu.fxml");
     }
@@ -74,7 +72,6 @@ public class LevelSelectController {
                     Button btn = new Button("Level " + level + "\n" + grid + "x" + grid);
                     btn.getStyleClass().add("level-card");
                     btn.setPrefSize(150, 100);
-
                     btn.setOnAction(e -> {
                         AudioManager.playClick();
                         LevelConfig.setLevel(level);
@@ -104,7 +101,6 @@ public class LevelSelectController {
                     Button btn = new Button("Level " + level);
                     btn.getStyleClass().add("level-card");
                     btn.setPrefSize(150, 100);
-
                     btn.setOnAction(e -> {
                         AudioManager.playClick();
                         LevelConfig.setLevel(level);

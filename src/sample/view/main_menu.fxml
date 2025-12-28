@@ -14,6 +14,5 @@
 
     <Button fx:id="btnNumber" text="Number Mode" onAction="#onNumberMode" styleClass="menu-button"/>
     <Button fx:id="btnImage" text="Image Mode" onAction="#onImageMode" styleClass="menu-button"/>
-<!--    <Button fx:id="btnSettings" text="Settings" onAction="#on" styleClass="menu-button"/>-->
     <Button fx:id="btnExit" text="Exit" onAction="#onExit" styleClass="menu-button"/>
 </VBox>

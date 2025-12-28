@@ -20,11 +20,11 @@ public final class AudioManager {
     }
 
     public static void playMenuBGM() {
-        playBGM("/audio/bgm.wav");
+        playBGM("/audio/main_menu.mp3");
     }
 
     public static void playGameBGM() {
-        playBGM("/audio/game.mp3");
+        playBGM("/audio/game_sound.mp3");
     }
 
     private static void playBGM(String path) {
@@ -60,15 +60,15 @@ public final class AudioManager {
     }
 
     public static void playClick() {
-        playSFX("/audio/mouse-klik.mp3");
+        playSFX("/audio/clik_sound.mp3");
     }
 
     public static void playSlide() {
-        playSFX("/audio/whoosh-wind.mp3");
+        playSFX("/audio/move_tile.mp3");
     }
 
     public static void playWin() {
-        playSFX("/audio/bereal.mp3");
+        playSFX("/audio/win_sound.mp3");
     }
 
     private static void playSFX(String path) {
