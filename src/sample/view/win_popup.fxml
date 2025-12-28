@@ -12,9 +12,7 @@
       fx:controller="sample.controller.WinPopupController">
 
     <Label text="YOU WIN!" styleClass="win-title"/>
-
     <Label fx:id="starLabel" text="★★★★★" styleClass="star"/>
-
     <Label fx:id="moveLabel" text="Moves: 0" styleClass="label-muted"/>
     <Label fx:id="timeLabel" text="Time: 00:00" styleClass="label-muted"/>
 

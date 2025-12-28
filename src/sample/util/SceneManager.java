@@ -12,7 +12,6 @@ public class SceneManager {
     public static void setStage(Stage s) {
         stage = s;
     }
-
     public static void switchScene(String fxml) {
         if (stage == null) {
             throw new IllegalStateException("Stage belum diset di SceneManager");

@@ -11,7 +11,6 @@ public final class AudioManager {
     private static String currentBgmPath;
     private static double bgmVolume = 0.5;
     private static double sfxVolume = 0.7;
-    private AudioManager() {}
     private static Media load(String path) {
         URL url = AudioManager.class.getResource(path);
         if (url == null)
@@ -87,6 +86,7 @@ public final class AudioManager {
     }
 
     private static double clamp(double v) {
+
         return Math.max(0, Math.min(1, v));
     }
 }

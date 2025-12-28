@@ -29,7 +29,7 @@ public class WinPopupController {
     }
 
     @FXML private void onReplay() {
-        ScoreResult.reset(); // SEKARANG VALID
+        ScoreResult.reset();
         SceneManager.switchScene("/sample/view/game.fxml");
     }
 

@@ -15,7 +15,8 @@ public class LevelSelectController {
     @FXML private GridPane numberGrid;
     @FXML private GridPane imageGrid;
 
-    record ImageLevel(int grid, String imagePath) {}
+    record ImageLevel(int grid, String imagePath) {
+    }
 
     private static final Map<Integer, ImageLevel> IMAGE_LEVELS = Map.of(
             1, new ImageLevel(3, "/images/level1.png"),
