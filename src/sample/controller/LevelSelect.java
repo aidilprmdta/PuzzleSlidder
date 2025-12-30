@@ -19,15 +19,15 @@ public class LevelSelect {
     }
 
     private static final Map<Integer, ImageLevel> IMAGE_LEVELS = Map.of(
-            1, new ImageLevel(3, "/images/level1.png"),
-            2, new ImageLevel(4, "/images/level2.jpg"),
-            3, new ImageLevel(5, "/images/level3.jpg"),
-            4, new ImageLevel(5, "/images/level4.png"),
-            5, new ImageLevel(5, "/images/level5.jpg"),
-            6, new ImageLevel(5, "/images/level6.png"),
-            7, new ImageLevel(5, "/images/level6.png"),
-            8, new ImageLevel(5, "/images/level6.png"),
-            9, new ImageLevel(5, "/images/level6.png")
+            1, new ImageLevel(3, "/images/Level1.jpeg"),
+            2, new ImageLevel(4, "/images/Level2.jpeg"),
+            3, new ImageLevel(5, "/images/Level3.jpeg"),
+            4, new ImageLevel(5, "/images/Level4.jpeg"),
+            5, new ImageLevel(5, "/images/Level5.jpeg"),
+            6, new ImageLevel(5, "/images/Level6.jpeg"),
+            7, new ImageLevel(5, "/images/Level7.jpeg"),
+            8, new ImageLevel(5, "/images/Level8.jpeg"),
+            9, new ImageLevel(5, "/images/Level9.jpeg")
     );
 
     private static final Map<Integer, Integer> NUMBER_LEVELS = Map.of(
