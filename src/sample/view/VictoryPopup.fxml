@@ -6,10 +6,10 @@
 
 <VBox spacing="20"
       alignment="CENTER"
-      stylesheets="/style/style.css"
+      stylesheets="/style/Style.css"
       xmlns="http://javafx.com/javafx/21"
       xmlns:fx="http://javafx.com/fxml"
-      fx:controller="sample.controller.WinPopupController">
+      fx:controller="sample.controller.VictoryPopup">
 
     <Label text="YOU WIN!" styleClass="win-title"/>
     <Label fx:id="starLabel" text="★★★★★" styleClass="star"/>

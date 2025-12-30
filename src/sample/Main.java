@@ -12,7 +12,7 @@ public class Main extends Application {
         SceneManager.setStage(stage);
         stage.setTitle("Puzzle Slider");
         AudioManager.playMenuBGM();
-        SceneManager.switchScene("/sample/view/main_menu.fxml");
+        SceneManager.switchScene("/sample/view/MainMenu.fxml");
 
         stage.setWidth(900);
         stage.setHeight(500);

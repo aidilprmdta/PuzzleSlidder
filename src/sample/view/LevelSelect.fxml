@@ -9,8 +9,8 @@
       alignment="CENTER"
       xmlns="http://javafx.com/javafx/21"
       xmlns:fx="http://javafx.com/fxml"
-      fx:controller="sample.controller.LevelSelectController"
-      stylesheets="/style/style.css">
+      fx:controller="sample.controller.LevelSelect"
+      stylesheets="/style/Style.css">
 
     <Label text="SELECT LEVEL" styleClass="section-title" />
 

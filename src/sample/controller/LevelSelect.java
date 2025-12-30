@@ -10,7 +10,7 @@ import sample.util.SceneManager;
 
 import java.util.Map;
 
-public class LevelSelectController {
+public class LevelSelect {
 
     @FXML private GridPane numberGrid;
     @FXML private GridPane imageGrid;
@@ -58,7 +58,7 @@ public class LevelSelectController {
 
     @FXML private void onBack() {
         AudioManager.playClick();
-        SceneManager.switchScene("/sample/view/main_menu.fxml");
+        SceneManager.switchScene("/sample/view/MainMenu.fxml");
     }
 
     private void createNumberButtons() {
@@ -77,7 +77,7 @@ public class LevelSelectController {
                         AudioManager.playClick();
                         LevelConfig.setLevel(level);
                         LevelConfig.configureNumberMode(grid);
-                        SceneManager.switchScene("/sample/view/game.fxml");
+                        SceneManager.switchScene("/sample/view/GameScreen.fxml");
                     });
 
                     numberGrid.add(btn, col[0], row[0]);
@@ -109,7 +109,7 @@ public class LevelSelectController {
                                 data.grid(),
                                 data.imagePath()
                         );
-                        SceneManager.switchScene("/sample/view/game.fxml");
+                        SceneManager.switchScene("/sample/view/GameScreen.fxml");
                     });
 
                     imageGrid.add(btn, col[0], row[0]);

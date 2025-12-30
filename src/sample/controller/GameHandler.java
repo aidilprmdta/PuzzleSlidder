@@ -21,7 +21,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class GameController {
+public class GameHandler {
 
     @FXML private GridPane levelGrid;
     @FXML private Label moveLabel, timeLabel;
@@ -219,7 +219,7 @@ public class GameController {
         AudioManager.playWin();
 
         ScoreResult.setResult(moves, seconds, calculateStars());
-        SceneManager.switchScene("/sample/view/win_popup.fxml");
+        SceneManager.switchScene("/sample/view/VictoryPopup.fxml");
     }
 
     private int calculateStars() {
@@ -244,6 +244,6 @@ public class GameController {
     @FXML public void onExit() {
         if (timer != null) timer.stop();
         AudioManager.stopBGM();
-        SceneManager.switchScene("/sample/view/main_menu.fxml");
+        SceneManager.switchScene("/sample/view/MainMenu.fxml");
     }
 }

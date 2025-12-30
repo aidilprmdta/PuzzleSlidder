@@ -19,7 +19,7 @@ public final class AudioManager {
     }
 
     public static void playMenuBGM() {
-        playBGM("/audio/main_menu.mp3");
+        playBGM("/audio/main_sound.mp3");
     }
 
     public static void playGameBGM() {
@@ -48,22 +48,12 @@ public final class AudioManager {
         }
     }
 
-    public static void setBgmVolume(double volume) {
-        bgmVolume = clamp(volume);
-        if (bgmPlayer != null)
-            bgmPlayer.setVolume(bgmVolume);
-    }
-
-    public static double getBgmVolume() {
-        return bgmVolume;
-    }
-
     public static void playClick() {
         playSFX("/audio/clik_sound.mp3");
     }
 
     public static void playSlide() {
-        playSFX("/audio/move_tile.mp3");
+        playSFX("/audio/move_sound.mp3");
     }
 
     public static void playWin() {
@@ -77,16 +67,4 @@ public final class AudioManager {
         sfx.setOnEndOfMedia(sfx::dispose);
     }
 
-    public static void setSfxVolume(double volume) {
-        sfxVolume = clamp(volume);
-    }
-
-    public static double getSfxVolume() {
-        return sfxVolume;
-    }
-
-    private static double clamp(double v) {
-
-        return Math.max(0, Math.min(1, v));
-    }
 }

@@ -8,8 +8,8 @@
 
 <BorderPane xmlns="http://javafx.com/javafx/21"
             xmlns:fx="http://javafx.com/fxml"
-            fx:controller="sample.controller.GameController"
-            stylesheets="/style/style.css">
+            fx:controller="sample.controller.GameHandler"
+            stylesheets="/style/Style.css">
 
     <top>
         <HBox spacing="30" alignment="CENTER">
@@ -26,11 +26,10 @@
     </center>
 
     <bottom>
-        <HBox spacing="30" alignment="CENTER">
+        <HBox spacing="35" alignment="CENTER" styleClass="button-bar">
             <Button text="Shuffle" onAction="#onShuffle" styleClass="btn-primary"/>
             <Button text="Exit" onAction="#onExit" styleClass="btn-secondary"/>
         </HBox>
     </bottom>
-
 
 </BorderPane>

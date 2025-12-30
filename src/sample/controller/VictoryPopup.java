@@ -6,7 +6,7 @@ import sample.model.ScoreResult;
 import sample.util.AudioManager;
 import sample.util.SceneManager;
 
-public class WinPopupController {
+public class VictoryPopup {
 
     @FXML private Label moveLabel;
     @FXML private Label timeLabel;
@@ -25,12 +25,12 @@ public class WinPopupController {
     }
 
     @FXML private void onContinue() {
-        SceneManager.switchScene("/sample/view/main_menu.fxml");
+        SceneManager.switchScene("/sample/view/MainMenu.fxml");
     }
 
     @FXML private void onReplay() {
         ScoreResult.reset();
-        SceneManager.switchScene("/sample/view/game.fxml");
+        SceneManager.switchScene("/sample/view/GameScreen.fxml");
     }
 
     @FXML private void onExit() {

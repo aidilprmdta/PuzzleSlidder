@@ -71,6 +71,11 @@
 }
 
 /* ================= LEVEL ================ */
+.grid-pane {
+    -fx-hgap: 24;
+    -fx-vgap: 24;
+}
+
 .level-card {
     -fx-pref-width: 180px;
     -fx-pref-height: 120px;
@@ -98,6 +103,11 @@
     -fx-scale-x: 1.06;
     -fx-scale-y: 1.06;
     -fx-cursor: hand;
+}
+
+.level-card-image {
+    -fx-background-radius: 18;
+    -fx-padding: 10;
 }
 
 /* ================= TILE ================= */
@@ -174,6 +184,10 @@
     -fx-background-color: #374151;
 }
 
+.button-bar {
+    -fx-margin-bottom: 30px;
+    -fx-padding-bottom: 30px;
+}
 /* ================= WIN ================= */
 .win-title {
     -fx-font-size: 30px;
